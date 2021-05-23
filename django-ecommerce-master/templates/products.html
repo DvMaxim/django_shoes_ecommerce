@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head_title %}
+M/W shoes - Все товары
+{% endblock %}
+
+{% block content %}
+
+	<div class="small-container">
+		
+		<div class="row row-2">
+			<h2>Все продукты</h2>
+			
+			<div class="main-category-menu">
+				<ul>
+					<li><a href="{% url 'core:show-main-category' 'A' %}">Все товары</a></li>
+					<li><a href="{% url 'core:show-main-category' 'M' %}">Для мужчин</a></li>
+					<li><a href="{% url 'core:show-main-category' 'W' %}">Для женщин</a></li>
+					<li><a href="{% url 'core:show-main-category' 'U' %}">Универсальное</a></li>
+				</ul>
+
+			</div>
+		</div>
+
+	<div class="submenu">
+
+	        <!-- Navbar brand -->
+	        <div class="submenu-span">
+	        	<span class="submenu-span">Категории:</span>
+	        	
+	        </div>
+
+	        <!-- Collapsible content -->
+		        <div class="submenu-ul">
+
+			          <!-- Links -->
+			          <ul id="SubMenuItems">
+
+			            <li >
+			            	<a href="{% url 'core:show-sub-category' 'A' 'all' %}">Все</a>
+			            </li>
+
+			            <li>
+			              <a href="{% url 'core:show-sub-category' 'A' 'high_boots' %}">Сапоги</a>
+			            </li>
+
+			            <li >
+			              <a href="{% url 'core:show-sub-category' 'A' 'boots' %}">Ботинки</a>
+			            </li>
+
+			            <li >
+			              <a href="{% url 'core:show-sub-category' 'A' 'half_boots' %}">П/ботинки</a>
+			            </li>
+
+			            <li >
+			               <a href="{% url 'core:show-sub-category' 'A' 'shoes' %}">Туфли</a>
+			            </li>
+
+			            <li >
+			              <a href="{% url 'core:show-sub-category' 'A' 'summer_shoes' %}">Туфли летние</a>
+			            </li>
+
+			            <li >
+			              <a href="{% url 'core:show-sub-category' 'A' 'home_shoes' %}">Домашняя обувь</a>
+			            </li>
+
+			            <li >
+			              <a href="{% url 'core:show-sub-category' 'A' 'sport_shoes' %}">Обувь для активного отдыха</a>
+			            </li>
+
+			          </ul>
+		          
+		        </div>
+
+		        <img src="{% static 'img/images/menu.png'%}" class="sub-menu-icon" onclick="submenutoggle()">
+	      <!-- <form>
+	        <div>
+	          <input type="text" placeholder="Search" aria-label="Search">
+	        </div>
+	      </form> -->
+	        
+	        <!-- Collapsible content -->
+
+        </div>
+
+
+
+
+
+
+      <!--/.Navbar-->
+		<div class="row">
+
+			{% for item in object_list %}
+
+				<div class="col-4">
+					
+					<img src="{{ item.image.url }}">
+					
+					<h5>{{ item.get_category_display }}</h5>
+
+					<a href="{{ item.get_absolute_url }}">
+						{{ item.title }}
+	                      <!-- <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span> -->
+	                </a>
+					
+					<!-- <div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-o"></i>
+					</div> -->
+
+					<p>	
+						  {% if item.discount_price %}
+
+		                  {{ item.discount_price }}
+
+		                  {% else %}
+
+		                  {{ item.price }}
+
+		                  {% endif %}
+		                  BYN
+	                </p>
+
+				</div>
+
+			{% endfor %}
+
+		</div>
+
+		<div>
+            {% include 'include/pagination.html' %}
+        </div>
+
+    <h2 class="title">Последние просмотренные</h2>
+
+		<div class="row">
+
+			<div class="col-4">
+				<img src="{% static 'img/images/product-5.jpg'%}">
+				<h4>Red Printed T-Shirt</h4>
+				<div class="rating">
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star"></i>
+					<i class="fa fa-star-o"></i>
+				</div>
+				<p>$50.00</p>
+			</div>
+			
+		</div>
+		
+	</div>
+
+
+
+{% endblock content %}
+
+
+	
+
+{% block extra_scripts %}
+
+<script>
+	var SubMenuItems = document.getElementById("SubMenuItems");
+	SubMenuItems.style.maxHeight = "0px";
+	function submenutoggle(){
+		if (SubMenuItems.style.maxHeight == "0px")
+		{
+			SubMenuItems.style.maxHeight = "300px";
+		}
+		else
+		{
+			SubMenuItems.style.maxHeight = "0px";
+		}
+	}
+</script>
+
+{% endblock extra_scripts %}

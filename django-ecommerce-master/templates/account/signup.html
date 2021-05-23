@@ -1,0 +1,105 @@
+{% extends "account/base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+  <div class="account-page">
+      <div class="container">
+			<div class="row">
+				<div class="col-2">
+
+					<div class="form-container" id="sign-up-form-container">
+
+            <div class="orange_rectangle" id="up-rect">
+              <img src="{% static 'img/images/registration_pic.png'%}" width="15%">
+            </div>
+
+            <div class="registration_content">
+
+              <div class="warning-registration">
+                
+                <p class="form-container-p">{% blocktrans %}У вас уже есть аккаунт ? Тогда, пожалуйста, <a class="url-orng" href="{{ login_url }}">войдите</a> в свою учетную запись.{% endblocktrans %}</p>
+
+              </div>
+              
+              <div class="form-btn" id="registration-form-btn">
+                  <span>Регестрация</span>
+                  <hr id="Indicator-registration">
+              </div>
+
+              <form class="signup" id="signup_form" method="post" action="/accounts/signup/">
+
+                    {% csrf_token %}
+                    
+
+                  <div id="div_id_username" class="form-group"> 
+
+                    <label for="id_username" class="col-form-label  requiredField">Введите логин 
+                    </label> 
+
+                    <div class=""> 
+
+                      <input type="text" name="username" placeholder="Username" autofocus="autofocus" minlength="1" maxlength="150" class="textinput textInput form-control" required id="id_username"> 
+                    </div> 
+                  </div> 
+
+                  <div id="div_id_email" class="form-group"> 
+
+                    <label for="id_email" class="col-form-label ">
+                  Введите E-mail (необязательно)
+                    </label> 
+
+                    <div class=""> 
+
+                      <input type="email" name="email" placeholder="E-mail address" class="textinput textInput form-control" id="id_email"> 
+                    </div> 
+
+                  </div> 
+
+                  <div id="div_id_password1" class="form-group"> 
+
+                    <label for="id_password1" class="col-form-label  requiredField">
+                  Введите пароль
+                    </label> 
+
+                    <div class=""> 
+
+                      <input type="password" name="password1" placeholder="Password" class="textinput textInput form-control" required id="id_password1"> 
+
+                    </div> 
+
+                  </div> 
+
+                  <div id="div_id_password2" class="form-group"> 
+
+                    <label for="id_password2" class="col-form-label  requiredField">
+                    Повторите пароль 
+                    </label> 
+
+                    <div class=""> 
+
+                      <input type="password" name="password2" placeholder="Password (again)" class="textinput textInput form-control" required id="id_password2"> 
+
+                    </div> 
+
+                  </div>
+
+                    
+                    <button class='btn btn-primary' type="submit">{% trans 'Зарегестрироваться' %} &raquo;</button>
+
+                  </form>
+                
+                </div>
+                
+                <div class="orange_rectangle" id="down-rect"></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+{% endblock %}

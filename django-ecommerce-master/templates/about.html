@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head_title %}
+M/W shoes - О нас
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+	<h2 class="title">Мы это</h2>
+
+	<div class="row" id="row_about">
+
+		<div class="col-4" id="about-delivery">
+			<img src="{% static 'img/about-us/delivery.png'%}">
+			<h3>Доставка</h3>
+
+			<p>Оперативная и бесплатная доставка по всей Беларуси</p>
+		</div>
+
+		<div class="col-4">
+			<img src="{% static 'img/about-us/more-team.png'%}">
+			<h3>Команда</h3>
+
+			<p>Амбициозные и ответственные сотрудники, способные с легкостью дать соответствующие рекомендации.</p>
+		</div>
+
+		<div class="col-4">
+			<img src="{% static 'img/about-us/more-products.png'%}">
+			<h3>Разнообразие</h3>
+
+			<p>Огромный ассортимент товаров, позволяющий удовлетворить желание даже самого субъективного покупателя</p>
+		</div>
+
+		<div class="col-4">
+			<img src="{% static 'img/about-us/extra-products.png'%}">
+			<h3>Гарантии</h3>
+
+			<p>Мы предоставляем весь необходимый перечень гарантий, который, в случае какого-либо происшествия, сможет защитить ваши права и собственность</p>
+		</div>
+
+	</div>
+
+	<h2 class="title">Пусть цифры все скажут</h2>
+
+	<div class="row" id="row_about_numbers">
+
+		<div class="col-4" id="clients">
+			<img src="{% static 'img/about-us/active.png'%}">
+			<h3>Активные клиенты</h3>
+
+			<p>100+</p>
+			
+		</div>
+
+		<div class="col-4">
+			<img src="{% static 'img/about-us/power.png'%}">
+			<h3>Выполненные заказы</h3>
+
+			<p>1000+</p>
+		</div>
+
+		<div class="col-4">
+			<img src="{% static 'img/about-us/smile.png'%}">
+			<h3>Положительные отзывы</h3>
+
+			<p>500+</p>
+		</div>
+
+	</div>
+
+</div>
+
+{% endblock content %}

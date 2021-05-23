@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head_title %}
+M/W shoes - {{ item.title }}
+{% endblock %}
+
+
+{% block content %}
+
+	<!-- single product details -->
+	<!-- single-product -->
+
+<div class="small-container single-product">
+
+	<div class="row" id="images-row">
+		
+		<div class="col-2" id="product-images">
+			<img src="{{ item.image.url }}" width="100%" id="ProductImg">
+
+			<div class="small-img-row">
+
+				{% if sub_images.image_1 %}
+
+				<div class="small-img-col">
+					<img src="{{ sub_images.image_1.url }}" width="100%" class="small-img">
+				</div>
+
+				{% endif %}
+
+				{% if sub_images.image_2 %}
+
+				<div class="small-img-col">
+					<img src="{{ sub_images.image_2.url }}" width="100%" class="small-img">
+				</div>
+
+				{% endif %}
+
+				{% if sub_images.image_3 %}
+
+				<div class="small-img-col">
+					<img src="{{ sub_images.image_3.url }}" width="100%" class="small-img">
+				</div>
+
+				{% endif %}
+
+				{% if sub_images.image_4 %}
+
+				<div class="small-img-col">
+					<img src="{{ sub_images.image_4.url }}" width="100%" class="small-img">
+				</div>
+
+				{% endif %}
+
+
+			</div>
+		</div>
+
+		<div class="col-2" id="item-details">
+			<p>{{item.get_category_display}} / {{ item.title }}</p>
+			<h1>{{ item.title }}</h1>
+			<h4>
+				  {% if item.discount_price %}
+
+                  {{ item.discount_price }}
+
+                  {% else %}
+
+                  {{ item.price }}
+
+                  {% endif %}
+                  BYN
+	        </h4>
+			
+			
+			<form action="{% url 'core:product-read-data' item.slug %}" method="post" class="product-main-form">
+				
+				{% csrf_token %}
+				
+				<div class="form-group">
+
+				{% for field in form %}					    
+				    
+				    <div class="row-form">
+			            {{field.label_tag}}
+			            <div class="field">
+			            	{{field}}
+			        	</div>
+			            {% if field.errors%}
+			            <div class="form-error">
+			            	{{field.errors}}
+			        	</div>
+			            {% endif %}
+			        </div>
+
+				{% endfor %} 
+			    
+				</div>	
+
+				<input id="form-btn" class="btn" type="submit" value="В корзину" name="add_cart">
+
+				<input id="form-btn" class="btn" type="submit" value="Удалить" name="delete_cart">
+
+		    </form>
+
+			<h3>Product Details <i class="fa fa-indent"></i></h3>
+			<br>
+			<p>{{item.description}}</p>
+		</div>
+		
+	</div>
+</div>
+	<!-- title -->
+
+	<div class="small-container">
+		<div class="row row-2">
+			<h2>Related Products</h2>
+			<a href="{% url 'core:show-main-category' item.owner %}">View more</a>
+		</div>
+	</div>
+
+	<!-- products -->
+
+	<div class="small-container">
+		
+		<div class="row">
+
+
+		{% for rel_item in object_list %}
+
+			{% if rel_item.owner == item.owner %}
+
+				<div class="col-4">
+					
+					<img src="{{ rel_item.image.url }}">
+					
+					<h5>{{ rel_item.get_category_display }}</h5>
+
+					<a href="{{ rel_item.get_absolute_url }}">
+						{{ rel_item.title }}
+	                      <!-- <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span> -->
+	                </a>
+					
+					<!-- <div class="rating">
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star"></i>
+						<i class="fa fa-star-o"></i>
+					</div> -->
+
+					<p>	
+						  {% if rel_item.discount_price %}
+
+		                  {{ rel_item.discount_price }}
+
+		                  {% else %}
+
+		                  {{ rel_item.price }}
+
+		                  {% endif %}
+		                  BYN
+	                </p>
+
+				</div>
+
+			{% endif %}
+
+		{% endfor %}
+
+			
+		</div>
+	</div>
+
+{% endblock content %}
+
+ {% block extra_scripts %}
+
+ <!-- js for product gallery -->
+
+	<script>
+		var ProductImg = document.getElementById("ProductImg");
+		var SmallImg = document.getElementsByClassName("small-img");
+			
+			SmallImg[0].onclick = function()
+			{
+				ProductImg.src = SmallImg[0].src;
+			}
+			SmallImg[1].onclick = function()
+			{
+				ProductImg.src = SmallImg[1].src;
+			}
+			SmallImg[2].onclick = function()
+			{
+				ProductImg.src = SmallImg[2].src;
+			}
+			SmallImg[3].onclick = function()
+			{
+				ProductImg.src = SmallImg[3].src;
+			}
+	</script>
+
+ {% endblock extra_scripts %}
