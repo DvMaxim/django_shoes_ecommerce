@@ -72,9 +72,8 @@ M/W shoes - {{ item.title }}
                   {% endif %}
                   BYN
 	        </h4>
-			
-			
-			<form action="{% url 'core:product-read-data' item.slug %}" method="post" class="product-main-form">
+
+			<form action="{% url 'core:product' item.slug %}" method="post" class="product-main-form">
 				
 				{% csrf_token %}
 				
@@ -85,7 +84,7 @@ M/W shoes - {{ item.title }}
 				    <div class="row-form">
 			            {{field.label_tag}}
 			            <div class="field">
-			            	{{field}}
+							<input type="number" name="count" required="" id="id_count" min="0">
 			        	</div>
 			            {% if field.errors%}
 			            <div class="form-error">
@@ -96,10 +95,9 @@ M/W shoes - {{ item.title }}
 
 				{% endfor %} 
 			    
-				</div>	
+				</div>
 
 				<input id="form-btn" class="btn" type="submit" value="В корзину" name="add_cart">
-
 				<input id="form-btn" class="btn" type="submit" value="Удалить" name="delete_cart">
 
 		    </form>
@@ -139,16 +137,7 @@ M/W shoes - {{ item.title }}
 
 					<a href="{{ rel_item.get_absolute_url }}">
 						{{ rel_item.title }}
-	                      <!-- <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span> -->
 	                </a>
-					
-					<!-- <div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div> -->
 
 					<p>	
 						  {% if rel_item.discount_price %}

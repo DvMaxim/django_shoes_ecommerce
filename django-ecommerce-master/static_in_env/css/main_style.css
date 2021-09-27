@@ -293,10 +293,12 @@ h4{
 .offer{
 	background: radial-gradient(#fff, #ffd6d6);
 	margin-top: 80px;
+	margin-bottom: 80px;
 	padding: 30px 0;	
 }
 
 .col-2 .offer-img{
+	width: 300px;
 	padding: 50px;
 }
 
@@ -843,10 +845,7 @@ th:last-child{
 	margin: 360px 50px 0 20px;
 }
 
-#first-word{
-	padding: 0 0 1px 0;
-	margin: 25px 0 0 15px;
-}
+
 
 #second_word{
 	padding: 1 0 0px 0;
@@ -871,7 +870,18 @@ th:last-child{
 	margin-left: 40px;
 }
 
+#reset-pass-form-btn span{
+	margin-left: 20px;
+	margin-right: 20px;
+}
 
+#first-word{
+	padding-left: 25px;
+}
+
+#second_word{
+	padding-left: 55px;
+}
 
 .form-container-p {
 	font-size: 13px;
@@ -879,25 +889,7 @@ th:last-child{
 	color: #647171;
 }
 
-.form-container span{
-	font-weight: bold;
-	padding: 10px;
-	margin: auto;
-	color: #555;
-	cursor: pointer;
-	width: 100px;
-	display: inline-block;
-}
 
-#form-btn{
-	display: inline-block;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	padding-left: 12px;
-	padding-right: 12px;
-	width: 170px !important;
-	height: 50px !important;
-}
 
 .form-container form{
 	max-width: 300px;
@@ -944,7 +936,8 @@ form a{
 	border: none;
 	background: #ff523b;
 	height: 3px;
-	margin-top: 8px;
+	margin-bottom: 8px;
+	margin-left: 15px;
 }
 
 #Indicator-registration{
@@ -1021,14 +1014,14 @@ form a{
 
 }
 
-
-#form-btn{
-	width: 200px;
-	font-size: 	16px;
-	text-align: center;
-	font-weight: normal	;
-	height: 40px;
-	margin-bottom: 70px;	 	
+.form-btn{
+	display: inline-block;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 12px;
+	padding-right: 12px;
+	width: 170px !important;
+	height: 50px !important;
 }
 
 #images-row{
@@ -1052,4 +1045,52 @@ form a{
 	margin-bottom: 25px;
 }
 
+#contact-form-btn{
+	text-align: center;
+	width: 250px;
+	margin-left: 20px;
+	margin-top: 110px;
+	margin-bottom: 20px;
+	margin-right: 10px;
+}
 
+#contact-form-container{
+	height: 780px;
+	width: 350px;
+}
+
+.contact-title{
+	padding: 0 0 1px 0;
+    text-align: center;
+    margin: 50px 5px 0 0px;
+    width: 300px;
+}
+
+.contact-messages{
+	margin-top: 10px;
+}
+
+.contact-form{
+	margin: 170px 0 0 28px;
+}
+
+textarea{
+	width: 250px;
+	margin-top: 5px;
+}
+
+#reset-pass-done-form-container{
+	height: 700px;
+}
+
+#reset-pass-done-form-container p{
+	margin-top: 120px;
+}
+
+.new-pass-enter{
+	margin-top: 150px;
+}
+
+#change-pass{
+	margin-top: 150px;
+}

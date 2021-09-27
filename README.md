@@ -1,2 +1,2 @@
 # django_shoes_ecommerce
-This is an ecommerce site for shoes creating on python django
+This is an ecommerce site for shoes created on python django.

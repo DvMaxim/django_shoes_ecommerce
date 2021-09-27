@@ -32,10 +32,9 @@
 							<li><a href="{% url 'core:home' %}">Главная</a></li>
 							<li><a href="{% url 'core:products' %}">Товары</a></li>
 							<li><a href="{% url 'core:about' %}">О нас</a></li>
-							<li><a href="">Связаться с нами</a></li>
-							
+							<li><a href="{% url 'core:contact' %}">Связаться с нами</a></li>
 							{% if request.user.is_authenticated %}
-							<li><a href="{% url 'core:account' %}">{{ user.username }}</a></li>
+							<li><a href="#">{{ user.username }}</a></li>
 							<li>
 								<a href="{% url 'account_logout' %}">
 								  <span> Выход </span>
@@ -68,22 +67,25 @@
 	</div>
 
     <div class="messages-section">
-    	
+
     	{% if messages %}
 
 		<ul class="messages">
 
 		    {% for message in messages %}
 		    
-		    <li 
-		    {% if message.tags %} 
-		    class="{{ message.tags }}"
-		    {% endif %}
-		    >
+		    
+		    	<li 
+				    {% if message.tags %} 
+				    class="{{ message.tags }}"
+				    {% endif %}
+				    >
 
-			{{ message }}
+					{{ message }}
 
-			</li>
+				</li>
+		    
+		    
 
 		    {% endfor %}
 

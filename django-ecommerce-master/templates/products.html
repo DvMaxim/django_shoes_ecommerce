@@ -11,7 +11,7 @@ M/W shoes - Все товары
 	<div class="small-container">
 		
 		<div class="row row-2">
-			<h2>Все продукты</h2>
+			<h2>Все товары</h2>
 			
 			<div class="main-category-menu">
 				<ul>
@@ -103,16 +103,10 @@ M/W shoes - Все товары
 
 					<a href="{{ item.get_absolute_url }}">
 						{{ item.title }}
-	                      <!-- <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span> -->
+
 	                </a>
 					
-					<!-- <div class="rating">
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star"></i>
-						<i class="fa fa-star-o"></i>
-					</div> -->
+
 
 					<p>	
 						  {% if item.discount_price %}
@@ -137,25 +131,43 @@ M/W shoes - Все товары
             {% include 'include/pagination.html' %}
         </div>
 
-    <h2 class="title">Последние просмотренные</h2>
+<!--    <h2 class="title">Наиболее понравившиеся вам товары</h2>-->
 
-		<div class="row">
 
-			<div class="col-4">
-				<img src="{% static 'img/images/product-5.jpg'%}">
-				<h4>Red Printed T-Shirt</h4>
-				<div class="rating">
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star"></i>
-					<i class="fa fa-star-o"></i>
-				</div>
-				<p>$50.00</p>
-			</div>
-			
-		</div>
-		
+<!--		<div class="row">-->
+
+<!--				{% for item in sorted_items %}-->
+
+<!--				<div class="col-4">-->
+
+<!--					<img src="{{ item.image.url }}">-->
+
+<!--					<h5>{{ item.get_category_display }}</h5>-->
+
+<!--					<a href="{{ item.get_absolute_url }}">-->
+<!--						{{ item.title }}-->
+
+<!--	                </a>-->
+
+<!--					<p>-->
+<!--						  {% if item.discount_price %}-->
+
+<!--		                  {{ item.discount_price }}-->
+
+<!--		                  {% else %}-->
+
+<!--		                  {{ item.price }}-->
+
+<!--		                  {% endif %}-->
+<!--		                  BYN-->
+<!--	                </p>-->
+
+<!--				</div>-->
+
+<!--				{% endfor %}-->
+
+<!--		</div>-->
+<!--		-->
 	</div>
 
 

@@ -30,7 +30,7 @@
 
 						<div class="form-btn" id="login-form-btn">
 							<span>Логин</span>
-							<hr id="Indicator">
+							<!-- <hr id="Indicator"> -->
 						</div>
 
 						<form class="login" method="POST" action="{% url 'account_login' %}">
@@ -74,18 +74,6 @@
 								<a class="btn" href="/accounts/password/reset/">{% trans 'Забыли пароль?' %}</a>
 								<button class="btn" type="submit">{% trans 'Войти' %}</button>
 							</div>
-
-							<!-- {{ form|crispy }}
-
-							{% if redirect_field_value %}
-
-							<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-							{% endif %}
-
-							<div id="login-two-buttons">
-								<a class="btn" href="{% url 'account_reset_password' %}">{% trans "Забыли пароль?" %}</a>
-								<button class="btn" type="submit">{% trans "Войти" %}</button>
-							</div> -->
 
 							
 
